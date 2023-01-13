@@ -17,9 +17,12 @@ export class Disciplina extends Entity {
 
   @property({
     type: 'number',
+    mysql: {
+      columnName: "curso_id"
+    },
     required: true,
   })
-  curso_id: number;
+  cursoId: number;
 
   @property({
     type: 'string',
@@ -29,9 +32,12 @@ export class Disciplina extends Entity {
 
   @property({
     type: 'number',
+    mysql: {
+      columnName: "professor_id"
+    },
     required: true,
   })
-  professor_id: number;
+  professorId: number;
 
 
   constructor(data?: Partial<Disciplina>) {

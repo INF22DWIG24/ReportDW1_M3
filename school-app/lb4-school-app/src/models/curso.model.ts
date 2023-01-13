@@ -17,9 +17,12 @@ export class Curso extends Entity {
 
   @property({
     type: 'number',
+    mysql: {
+      columnName: "nr_anos"
+    },
     default: 3,
   })
-  nr_anos?: number;
+  nrAnos?: number;
 
 
   constructor(data?: Partial<Curso>) {

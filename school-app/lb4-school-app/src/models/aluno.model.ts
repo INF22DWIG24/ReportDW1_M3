@@ -17,15 +17,21 @@ export class Aluno extends Entity {
 
   @property({
     type: 'string',
+    mysql: {
+      columnName: "n_aluno"
+    },
     required: true,
   })
-  n_aluno: string;
+  nAluno: string;
 
   @property({
     type: 'number',
+    mysql: {
+      columnName: "disciplina_id"
+    },
     required: true,
   })
-  disciplina_id: number;
+  disciplinaId: number;
 
 
   constructor(data?: Partial<Aluno>) {
