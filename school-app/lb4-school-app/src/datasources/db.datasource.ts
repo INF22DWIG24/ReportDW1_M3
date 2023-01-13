@@ -9,7 +9,7 @@ const config = {
   port: 3306,
   user: 'root',
   password: 'root',
-  database: 'school'
+  database: 'schoolapp'
 };
 
 // Observe application's life cycle to disconnect the datasource when
