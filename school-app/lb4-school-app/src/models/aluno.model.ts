@@ -1,4 +1,5 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, belongsTo} from '@loopback/repository';
+import {Disciplina} from './disciplina.model';
 
 @model()
 export class Aluno extends Entity {
@@ -24,15 +25,8 @@ export class Aluno extends Entity {
   })
   nAluno: string;
 
-  @property({
-    type: 'number',
-    mysql: {
-      columnName: "disciplina_id"
-    },
-    required: true,
-  })
+  @belongsTo(() => Disciplina, {name: 'alunoDisc'})
   disciplinaId: number;
-
 
   constructor(data?: Partial<Aluno>) {
     super(data);
