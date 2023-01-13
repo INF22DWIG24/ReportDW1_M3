@@ -1,7 +1,4 @@
-import {Entity, model, property, belongsTo, hasMany} from '@loopback/repository';
-import {Curso} from './curso.model';
-import {Professor} from './professor.model';
-import {Aluno} from './aluno.model';
+import {Entity, model, property} from '@loopback/repository';
 
 @model()
 export class Disciplina extends Entity {
@@ -17,19 +14,25 @@ export class Disciplina extends Entity {
     default: 2022,
   })
   ano?: number;
+
+  @property({
+    type: 'number',
+    required: true,
+  })
+  curso_id: number;
+
   @property({
     type: 'string',
     required: true,
   })
   nome: string;
-  @belongsTo(() => Curso, {name: 'cursodisc'})
-  curso_id: number;
 
-  @belongsTo(() => Professor, {name: 'profdisc'})
+  @property({
+    type: 'number',
+    required: true,
+  })
   professor_id: number;
 
-  @hasMany(() => Aluno, {keyTo: 'disciplina_id'})
-  alunosdisc: Aluno[];
 
   constructor(data?: Partial<Disciplina>) {
     super(data);

@@ -1,22 +1,16 @@
-import {inject, Getter} from '@loopback/core';
-import {DefaultCrudRepository, repository, BelongsToAccessor} from '@loopback/repository';
+import {inject} from '@loopback/core';
+import {DefaultCrudRepository} from '@loopback/repository';
 import {DbDataSource} from '../datasources';
-import {Aluno, AlunoRelations, Disciplina} from '../models';
-import {DisciplinaRepository} from './disciplina.repository';
+import {Aluno, AlunoRelations} from '../models';
 
 export class AlunoRepository extends DefaultCrudRepository<
   Aluno,
   typeof Aluno.prototype.id,
   AlunoRelations
 > {
-
-  public readonly alunodisc: BelongsToAccessor<Disciplina, typeof Aluno.prototype.id>;
-
   constructor(
-    @inject('datasources.db') dataSource: DbDataSource, @repository.getter('DisciplinaRepository') protected disciplinaRepositoryGetter: Getter<DisciplinaRepository>,
+    @inject('datasources.db') dataSource: DbDataSource,
   ) {
     super(Aluno, dataSource);
-    this.alunodisc = this.createBelongsToAccessorFor('alunodisc', disciplinaRepositoryGetter,);
-    this.registerInclusionResolver('alunodisc', this.alunodisc.inclusionResolver);
   }
 }
