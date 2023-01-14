@@ -18,9 +18,6 @@ export class Aluno extends Entity {
 
   @property({
     type: 'string',
-    mysql: {
-      columnName: "n_aluno"
-    },
     required: true,
   })
   nAluno: string;

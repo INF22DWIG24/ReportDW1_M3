@@ -18,9 +18,6 @@ export class Curso extends Entity {
 
   @property({
     type: 'number',
-    mysql: {
-      columnName: "nr_anos"
-    },
     default: 3,
   })
   nrAnos?: number;
