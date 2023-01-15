@@ -10,21 +10,25 @@ const dataProvider = lb4Provider("http://localhost:3000/");
 const App = () => (
   <Admin dataProvider={dataProvider}>
     <Resource   name="alunos" 
+                options={{label: "Alunos"}}
                 list={AlunoList} 
                 edit={AlunoEdit} 
                 create={AlunoCreate}
     />
     <Resource   name="cursos" 
+                options={{label: "Cursos"}}
                 list={CursoList} 
                 edit={CursoEdit} 
                 create={CursoCreate}
                 show={CursoDisciplina}
     />
-    <Resource   name="disciplinas" 
+    <Resource   name={`disciplinas`}
+                options={{label: "Disciplinas"}}
                 list={DisciplinaList} 
                 edit={DisciplinaEdit} 
                 create={DisciplinaCreate}
                 show={DisciplinaAlunos}
+                
     />
     <Resource   name="professors" 
                 options={{label: "Professores"}} 
@@ -32,6 +36,7 @@ const App = () => (
                 edit={ProfessorEdit} 
                 create={ProfessorCreate}
     />
+    
   </Admin>
 );
 

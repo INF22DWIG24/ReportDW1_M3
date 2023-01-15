@@ -44,8 +44,9 @@ export const DisciplinaEdit = (props) => (
     </Edit>
 );
 
-export const DisciplinaCreate = () => (
-    <Create>
+export const DisciplinaCreate = (props) => {
+    console.log(props);
+    return (<Create {...props}>
         <SimpleForm>
             <NumberInput source="ano"/>
             <TextInput source="nome"/>
@@ -56,8 +57,8 @@ export const DisciplinaCreate = () => (
                 <SelectInput optionText="nome"/>
             </ReferenceInput>
         </SimpleForm>
-    </Create>
-);
+    </Create>)
+};
 
 export const DisciplinaAlunos = (props) => (
     <Show title={<DisciplinaTitle/>}{...props}>

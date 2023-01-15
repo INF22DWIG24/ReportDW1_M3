@@ -1,4 +1,27 @@
-import { Create, Edit, NumberInput, SimpleForm, TextInput, Datagrid, List, ReferenceField, TextField, NumberField, EditButton, Show, SimpleShowLayout, ReferenceManyField, ShowButton, useRecordContext, CreateButton} from 'react-admin';
+import React from 'react';
+import {
+    Create, 
+    Edit, 
+    NumberInput, 
+    SimpleForm, 
+    TextInput, 
+    Datagrid, 
+    List, 
+    ReferenceField, 
+    TextField, 
+    NumberField, 
+    EditButton, 
+    Show, 
+    SimpleShowLayout, 
+    ReferenceManyField, 
+    ShowButton, 
+    useRecordContext, 
+    // CreateButton, 
+    // Resource,
+    // Link,
+    // Button
+} from 'react-admin';
+// import {useLocation} from "react-router-dom";
 
 const CursoTitle = () => {
     const record = useRecordContext();
@@ -25,12 +48,22 @@ export const CursoEdit = (props) => (
     </Edit>
 );
 
-export const CursoDisciplina = (props) => (
+
+export const CursoDisciplina = (props) => {
+    // const location = useLocation();
+    // const cursoUrl = location.pathname;
+    // const cursoId = cursoUrl.split("/")[2];
+    return(
     <Show title={<CursoTitle/>}{...props}>
         <SimpleShowLayout>
             <TextField source="nome"/>
-            <ReferenceManyField reference="disciplinas" target="cursoID">
-                <CreateButton label='CREATE (Ainda não funciona)'></CreateButton>
+            <ReferenceManyField reference={'disciplinas'} target={"cursoId"}>
+                {/* <CreateButton label='CREATE' {...props} resource={`cursos/${cursoId}/disciplinas`}>
+                    <Resource  dataProvider={dataProvider} name={`cursos/${cursoId}/disciplinas`}
+                                    create={CursoDisciplinaCreate}
+                                    list={CursoDisciplinaList}
+                    />
+                </CreateButton> */}
                 <Datagrid>
                     <NumberField source="ano"/>
                     <TextField source="nome"/>
@@ -40,8 +73,9 @@ export const CursoDisciplina = (props) => (
                 </Datagrid>
             </ReferenceManyField>
         </SimpleShowLayout>
-    </Show>
-);
+    </Show>)
+};
+
 
 export const CursoCreate = () => (
     <Create>
