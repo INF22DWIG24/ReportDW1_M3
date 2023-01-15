@@ -10,6 +10,7 @@ export const AlunoList = () => (
             <ReferenceField source="disciplinaId" reference="disciplinas">
                 <TextField source='nome'/>
             </ReferenceField>
+            <EditButton/>
         </Datagrid>
     </List>
 );
