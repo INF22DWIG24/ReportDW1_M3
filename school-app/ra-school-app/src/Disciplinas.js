@@ -59,8 +59,8 @@ export const DisciplinaCreate = () => (
     </Create>
 );
 
-export const DisciplinaAlunos = () => (
-    <Show>
+export const DisciplinaAlunos = (props) => (
+    <Show title={<DisciplinaTitle/>}{...props}>
         <SimpleShowLayout>
             <TextField source="nome"/>
             <ReferenceManyField reference="alunos" target="disciplinaId">

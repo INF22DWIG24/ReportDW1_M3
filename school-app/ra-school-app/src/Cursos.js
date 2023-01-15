@@ -2,7 +2,7 @@ import { Create, Edit, NumberInput, SimpleForm, TextInput, Datagrid, List, Refer
 
 const CursoTitle = () => {
     const record = useRecordContext();
-    return record ? (<span>Disciplina {`"${record.nome}"`}</span>):null;
+    return record ? (<span>Curso {`"${record.nome}"`}</span>):null;
 };
 
 export const CursoList = () => (
@@ -25,8 +25,8 @@ export const CursoEdit = (props) => (
     </Edit>
 );
 
-export const CursoDisciplina = () => (
-    <Show>
+export const CursoDisciplina = (props) => (
+    <Show title={<CursoTitle/>}{...props}>
         <SimpleShowLayout>
             <TextField source="nome"/>
             <ReferenceManyField reference="disciplinas" target="cursoID">
