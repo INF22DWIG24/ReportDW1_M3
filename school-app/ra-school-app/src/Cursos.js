@@ -1,4 +1,9 @@
-import { Create, Edit, NumberInput, SimpleForm, TextInput, Datagrid, List, ReferenceField, TextField, NumberField, EditButton, Show, SimpleShowLayout, ReferenceManyField, ShowButton} from 'react-admin';
+import { Create, Edit, NumberInput, SimpleForm, TextInput, Datagrid, List, ReferenceField, TextField, NumberField, EditButton, Show, SimpleShowLayout, ReferenceManyField, ShowButton, useRecordContext} from 'react-admin';
+
+const CursoTitle = () => {
+    const record = useRecordContext();
+    return record ? (<span>Disciplina {`"${record.nome}"`}</span>):null;
+};
 
 export const CursoList = () => (
     <List>
@@ -11,8 +16,8 @@ export const CursoList = () => (
     </List>
 );
 
-export const CursoEdit = () => (
-    <Edit>
+export const CursoEdit = (props) => (
+    <Edit title={<CursoTitle/>}{...props}>
         <SimpleForm>
             <TextInput source="nome" />
             <NumberInput source="nrAnos" />

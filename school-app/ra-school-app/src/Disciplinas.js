@@ -1,8 +1,19 @@
 
-import { Create, Edit, NumberInput, SimpleForm, TextInput, ReferenceInput, SelectInput, Datagrid, List, ReferenceField, TextField, NumberField, EditButton, Show, SimpleShowLayout, ReferenceManyField, ShowButton} from 'react-admin';
+import { Create, Edit, NumberInput, SimpleForm, TextInput, ReferenceInput, SelectInput, Datagrid, List, ReferenceField, TextField, NumberField, EditButton, Show, SimpleShowLayout, ReferenceManyField, ShowButton, useRecordContext, Filter} from 'react-admin';
 
-export const DisciplinaList = () => (
-    <List>
+export const DisciplinaFilter = (props) => 
+    <Filter {...props}>
+        <TextInput label="Search" source="nome" alwaysOn/>
+        <SelectInput optionText="description"/>
+    </Filter>
+
+const DisciplinaTitle = () => {
+    const record = useRecordContext();
+    return record ? (<span>Disciplina {`"${record.nome}"`}</span>):null;
+};
+
+export const DisciplinaList = (props) => (
+    <List filters={<DisciplinaFilter/>}{...props}>
         <Datagrid>
             <NumberField source="ano" />
             <TextField source="nome" />
@@ -18,8 +29,8 @@ export const DisciplinaList = () => (
     </List>
 );
 
-export const DisciplinaEdit = () => (
-    <Edit>
+export const DisciplinaEdit = (props) => (
+    <Edit title={<DisciplinaTitle/>}{...props}>
         <SimpleForm>
             <NumberInput source="ano" />
             <TextInput source="nome" />
@@ -31,19 +42,6 @@ export const DisciplinaEdit = () => (
             </ReferenceInput>
         </SimpleForm>
     </Edit>
-);
-export const DisciplinaAlunos = () => (
-    <Show>
-        <SimpleShowLayout>
-            <TextField source="nome"/>
-            <ReferenceManyField reference="alunos" target="disciplinaId">
-                <Datagrid>
-                    <TextField source="nome"/>
-                    <TextField source="nAluno"/>
-                </Datagrid>
-            </ReferenceManyField>
-        </SimpleShowLayout>
-    </Show>
 );
 
 export const DisciplinaCreate = () => (
@@ -60,3 +58,18 @@ export const DisciplinaCreate = () => (
         </SimpleForm>
     </Create>
 );
+
+export const DisciplinaAlunos = () => (
+    <Show>
+        <SimpleShowLayout>
+            <TextField source="nome"/>
+            <ReferenceManyField reference="alunos" target="disciplinaId">
+                <Datagrid>
+                    <TextField source="nome"/>
+                    <TextField source="nAluno"/>
+                </Datagrid>
+            </ReferenceManyField>
+        </SimpleShowLayout>
+    </Show>
+);
+
