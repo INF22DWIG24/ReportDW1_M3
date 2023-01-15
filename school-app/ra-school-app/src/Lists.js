@@ -37,6 +37,7 @@ export const CursoList = () => (
         <Datagrid>
             <TextField source="nome" />
             <NumberField source="nrAnos" />
+        <EditButton/>
         </Datagrid>
     </List>
 );
@@ -45,6 +46,7 @@ export const ProfessorList = () => (
     <List>
         <Datagrid>
             <TextField source="nome" />
+        <EditButton/>
         </Datagrid>
     </List>
 );
