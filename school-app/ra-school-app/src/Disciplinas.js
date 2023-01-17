@@ -45,7 +45,6 @@ export const DisciplinaEdit = (props) => (
 );
 
 export const DisciplinaCreate = (props) => {
-    console.log(props);
     return (<Create {...props}>
         <SimpleForm>
             <NumberInput source="ano"/>

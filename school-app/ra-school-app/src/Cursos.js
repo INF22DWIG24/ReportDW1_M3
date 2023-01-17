@@ -15,13 +15,14 @@ import {
     SimpleShowLayout, 
     ReferenceManyField, 
     ShowButton, 
-    useRecordContext, 
-    // CreateButton, 
-    // Resource,
-    // Link,
-    // Button
+    useRecordContext,
+    CreateButton
+    // Resource
 } from 'react-admin';
+// import lb4Provider from 'react-admin-lb4';
 // import {useLocation} from "react-router-dom";
+
+// const dataProvider = lb4Provider("http://localhost:3000/");
 
 const CursoTitle = () => {
     const record = useRecordContext();
@@ -58,12 +59,7 @@ export const CursoDisciplina = (props) => {
         <SimpleShowLayout>
             <TextField source="nome"/>
             <ReferenceManyField reference={'disciplinas'} target={"cursoId"}>
-                {/* <CreateButton label='CREATE' {...props} resource={`cursos/${cursoId}/disciplinas`}>
-                    <Resource  dataProvider={dataProvider} name={`cursos/${cursoId}/disciplinas`}
-                                    create={CursoDisciplinaCreate}
-                                    list={CursoDisciplinaList}
-                    />
-                </CreateButton> */}
+                <CreateButton {...props}/>
                 <Datagrid>
                     <NumberField source="ano"/>
                     <TextField source="nome"/>
