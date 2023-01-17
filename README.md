@@ -19,8 +19,3 @@ Para o desenvolvimento do projeto mateve-se o mesmo tema escolhido no momento de
 * Capitulo 2: [Recursos](doc/c2.md)
 * Capitulo 3: [Desenvolvimento](doc/c3.md)
 
-## Equipa/Grupo
-* [Bruno Ribeiro](https://github.com/a040225)
-* [Cátia Antunes](https://github.com/CatiaAntunes)
-* [Diogo Alves](https://github.com/Diogojqalves)
-* [Vitor Ferreira](https://github.com/vitorsrf)
