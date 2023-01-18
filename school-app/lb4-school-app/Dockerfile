@@ -2,9 +2,11 @@
 FROM node:17
 ENV NODE_ENV=production
 WORKDIR /app
-COPY . .
+COPY package.json .
 RUN npm install --production --silent
 RUN chown -R node /app
+COPY . .
 EXPOSE 3000
 USER node
-CMD ["npm", "install"]
+
+CMD npm start

@@ -5,10 +5,10 @@ const config = {
   name: 'db',
   connector: 'mysql',
   url: '',
-  host: 'mysql',
-  port: 3306,
+  host: 'mysql-school-app',
+  //port: 3306,
   user: 'root',
-  password: 'root',
+  password: 'secret',
   database: 'schoolapp'
 };
 
