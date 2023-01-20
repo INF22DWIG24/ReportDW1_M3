@@ -1,0 +1,18 @@
+version: '3'
+services:
+  lb4:
+    build: ./lb4-school-app
+    ports:
+      - 3000:3000
+    links:
+      - db
+  db:
+    image: mysql:5.7
+    command: --default-character-set=utf8
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: schoolapp
+    volumes:
+      - ./db/initdb:/docker-entrypoint-initdb.d
+      - ./db/mysql-data:/var/lib/mysql
+    entrypoint: ["/bin/bash", "-c", "exec /usr/local/bin/docker-entrypoint.sh mysqld --init-file=/docker-entrypoint-initdb.d/init.sql"]

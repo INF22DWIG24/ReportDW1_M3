@@ -1,3 +1,4 @@
+-- doc original
 create schema schoolapp;
 use schoolapp;
 

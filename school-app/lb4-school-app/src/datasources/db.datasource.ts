@@ -8,7 +8,7 @@ const config = {
   host: 'db',
   port: 3306,
   user: 'root', 
-  password: '12345678',
+  password: 'root',
   database: 'schoolapp'
 };
 
