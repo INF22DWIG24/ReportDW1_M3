@@ -16,3 +16,9 @@ services:
       - ./db/initdb:/docker-entrypoint-initdb.d
       - ./db/mysql-data:/var/lib/mysql
     entrypoint: ["/bin/bash", "-c", "exec /usr/local/bin/docker-entrypoint.sh mysqld --init-file=/docker-entrypoint-initdb.d/init.sql"]
+  react:
+    build: ./ra-school-app
+    ports:
+      - 3006:3006
+    depends_on:
+      - lb4
