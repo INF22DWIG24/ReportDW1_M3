@@ -11,7 +11,15 @@ Este trabalho reporta-se ao momento de avaliação designado por M3  desenvolvid
 ## Gestão Escolar
 Para o desenvolvimento do projeto mateve-se o mesmo tema escolhido no momento de avaliaçao  M2. O objetivo foi a criaçao de uma API de gestão escolar básica constituido por 4 recursos Aluno, Disciplina, Curso e Professor,  onde se pretende registar algumas informações básicas como os dados do aluno, diciplinas em que se encontra matriculado,  o professor da disciplina e a que curso a disciplina pertence.
 
+## Tecnologias
+* [nodeJS](https://nodejs.org/en/)
+* [MySQL](https://www.mysql.com/)
+* [Docker](https://www.docker.com/)
+* [Postman](https://www.postman.com/)
 
+### Frameworks e Bibliotecas
+* [nodeJS](https://nodejs.org/en/)
+* [React](https://reactjs.org/)
 ## Relatório
 
 ### Apresentação do projeto
