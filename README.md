@@ -18,6 +18,7 @@ Para o desenvolvimento do projeto mateve-se o mesmo tema escolhido no momento de
 * [Postman](https://www.postman.com/)
 
 ### Frameworks e Bibliotecas
+* [Loopback](https://loopback.io//)
 * [nodeJS](https://nodejs.org/en/)
 * [React](https://reactjs.org/)
 ## Relatório
